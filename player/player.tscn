@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqbtpfrwg6nfe"]
+[gd_scene load_steps=8 format=3 uid="uid://bqbtpfrwg6nfe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sj44y"]
+[ext_resource type="Script" path="res://scripts/player_hitbox.gd" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://wbqo2fxsjx8i" path="res://scenes/LocalCamera.tscn" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2u4s8"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkbax"]
+albedo_color = Color(0.37, 0.643, 1, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sqiq2"]
+material = SubResource("StandardMaterial3D_rkbax")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1dw6"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_sj44y")
@@ -17,4 +25,19 @@ shape = SubResource("CapsuleShape3D_2u4s8")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("CapsuleMesh_sqiq2")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="."]
+script = ExtResource("2_rkbax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.01718)
+shape = SubResource("BoxShape3D_g1dw6")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="LocalCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_g1dw6")]
+player = NodePath("..")
+mouse_sensitivity = null
+vertical_angle_limit = null
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldownTimer_timeout"]

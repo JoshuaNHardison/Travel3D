@@ -1,0 +1,16 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1739057745.0
+icon.svg::CompressedTexture2D::6075731094351156019::1738974103::1738974169::1::::<><><>e1ddace4870795a1ded6b7201bf31384<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://npc/::1739050444.0
+enemy.tscn::PackedScene::4429918597611975594::1739050444::0::1::::<><><><>::res://scripts/enemy.gd
+::res://player/::1739050444.0
+player.tscn::PackedScene::3512687259314071994::1739050444::0::1::::<><><><>::res://scripts/player.gd<>res://scripts/player_hitbox.gd<>uid://wbqo2fxsjx8i::::res://scenes/LocalCamera.tscn
+::res://scenes/::1739050445.0
+LocalCamera.tscn::PackedScene::1547216837713630414::1739050445::0::1::::<><><><>::res://scripts/local_camera.gd
+main.tscn::PackedScene::3242708549612566639::1739050444::0::1::::<><><><>::uid://bqbtpfrwg6nfe::::res://player/player.tscn<>uid://b4d5d2tlfvlg1::::res://npc/enemy.tscn<>res://scripts/world_camera.gd
+::res://scripts/::1739050444.0
+enemy.gd::GDScript::-1::1739035464::0::1::::<>CharacterBody3D<><><>::
+local_camera.gd::GDScript::-1::1739050444::0::1::::SoulsCamera<>Node<><><>::
+player.gd::GDScript::-1::1739047166::0::1::::LocalPlayer<>CharacterBody3D<><><>::
+player_hitbox.gd::GDScript::-1::1739035410::0::1::::<>Area3D<><><>::
+world_camera.gd::GDScript::-1::1739050217::0::1::::<>Node<><><>::

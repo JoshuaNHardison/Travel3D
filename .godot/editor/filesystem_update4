@@ -1,0 +1,8 @@
+res://scenes/main.tscn
+res://player/player.tscn
+res://npc/enemy.tscn
+res://scenes/LocalCamera.tscn
+res://scripts/local_camera.gd
+res://scripts/world_camera.gd
+res://scripts/player.gd
+res://scripts/enemy.gd

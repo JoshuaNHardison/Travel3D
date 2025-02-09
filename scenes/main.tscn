@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmg163cmujrml"]
+[gd_scene load_steps=6 format=3 uid="uid://bmg163cmujrml"]
 
 [ext_resource type="PackedScene" uid="uid://bqbtpfrwg6nfe" path="res://player/player.tscn" id="1_3dwi7"]
+[ext_resource type="PackedScene" uid="uid://b4d5d2tlfvlg1" path="res://npc/enemy.tscn" id="2_sugp2"]
+[ext_resource type="Script" path="res://scripts/world_camera.gd" id="3_sugp2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_msp0k"]
 size = Vector3(60, 2, 60)
@@ -9,6 +11,7 @@ size = Vector3(60, 2, 60)
 size = Vector3(60, 2, 60)
 
 [node name="Main" type="Node"]
+script = ExtResource("3_sugp2")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -20,10 +23,13 @@ shape = SubResource("BoxShape3D_msp0k")
 mesh = SubResource("BoxMesh_aapyv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.986014, 0.166666, 0, -0.166666, -0.986014, 0, 9.91735, 0)
+transform = Transform3D(1, 0, 0, 0, -0.462182, 0.886785, 0, -0.886785, -0.462182, 0, 9.91735, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 30)
-
 [node name="Player" parent="." instance=ExtResource("1_3dwi7")]
+
+[node name="Enemy" parent="." instance=ExtResource("2_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42224, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.618189, 0.78603, 0, -0.78603, 0.618189, 0, 11.061, 11.111)
