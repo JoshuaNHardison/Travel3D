@@ -19,12 +19,28 @@ var offset : Vector3 = Vector3(0, 0, -5)
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	focus_point_tween = create_tween()
 
 func _process(delta):
 	if player:
-		focus_point.global_position = player.global_position
-		# rotate_camera()
+		# focus_point.global_position = player.global_position
 		update_camera_position()
+		update_focus_point_position(delta)
+
+
+func update_focus_point_position(delta):
+	if focus_point_tween:
+		focus_point_tween.kill()
+	focus_point_tween = create_tween()
+	focus_point_tween.tween_property(
+	 	focus_point,
+	 	"global_position",
+	 	player.global_position,
+	 	0.5
+	 ).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BOUNCE)
+	#if its within a certain distance - stop that shit you bitcch
+	#focus_point.global_position += (focus_point.position.direction_to(player.position)) * delta * 2
+
 
 func _input(event : InputEvent):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -32,11 +48,8 @@ func _input(event : InputEvent):
 		pan_camera(mouse_delta)
 
 func rotate_camera():
-	camera.look_at(focus_point)
+	camera.look_at(focus_point.position)
 
-
-func update_camera():
-	camera.look_at(focus_point.global_position)
 
 func pan_camera(mouse_delta : Vector2):
 	# Horizontal rotation (around Y-axis, relative to FocusPoint)

@@ -36,8 +36,6 @@ shape = SubResource("BoxShape3D_g1dw6")
 
 [node name="LocalCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_g1dw6")]
 player = NodePath("..")
-mouse_sensitivity = null
-vertical_angle_limit = null
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldownTimer_timeout"]

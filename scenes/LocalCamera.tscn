@@ -30,7 +30,7 @@ radius = 0.25
 material = SubResource("StandardMaterial3D_g23ia")
 
 [node name="CameraNest" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 3)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CameraNest"]
 radial_segments = 4
@@ -39,11 +39,10 @@ material = SubResource("StandardMaterial3D_nv62q")
 [node name="FocusPoint" type="Node3D" parent="."]
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="FocusPoint"]
-radius = 1.0
 material = SubResource("StandardMaterial3D_seohx")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 3)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="PlayerCamera"]
 material = SubResource("StandardMaterial3D_w2ora")
